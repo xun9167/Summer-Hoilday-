@@ -5,3 +5,8 @@ server:
 spring:
   thymeleaf:
     cache: false
+  datasource:
+    url: jdbc:mysql://122.51.203.18:3306/GraManagement?characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: GraManagement
+    password: GraManagement
