@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/f_header::head('实训公司信息管理')"></head>
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <div th:replace="common/f_navbar :: navbar('实训公司信息管理')"></div>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <div th:replace="common/f_sidebar :: sidebar_admin"></div>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+
+
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <!-- <div class="col-sm-6">
+                          <h1 class="m-0 text-dark">Dashboard</h1>
+                        </div> -->
+
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+
+
+            <!-- Main content -->
+            <section class="content">
+
+                <button class="btn btn-success"  style="margin: -15px 0 15px 10px">
+                    导入
+                </button>
+<!--                <button type="button" class="btn btn-block btn-primary btn-sm">导入</button>-->
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <!-- <div class="card-header">
+                                  <h3 class="card-title">Bordered Table</h3>
+                                </div> -->
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <table class="table table-bordered">
+                                        <thead style="text-align: center;">
+                                        <tr>
+                                            <th style="width: 150px">公司名称</th>
+                                            <th>所在城市</th>
+                                            <th>培训方式</th>
+                                            <th>联系人</th>
+                                            <th>联系方式</th>
+                                            <th style="width: 100px">操作</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody style="text-align: center;">
+                                        <tr>
+                                            <td>天下集团</td>
+                                            <td>郑州</td>
+                                            <td>校内培训</td>
+                                            <td>李华</td>
+                                            <td>13243320296</td>
+                                            <td>
+                                                <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs">重置密码</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>天下集团</td>
+                                            <td>郑州</td>
+                                            <td>校内培训</td>
+                                            <td>李华</td>
+                                            <td>13243320296</td>
+                                            <td>
+                                                <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs">重置密码</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>天下集团</td>
+                                            <td>郑州</td>
+                                            <td>校内培训</td>
+                                            <td>李华</td>
+                                            <td>13243320296</td>
+                                            <td>
+                                                <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs">重置密码</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>天下集团</td>
+                                            <td>郑州</td>
+                                            <td>校内培训</td>
+                                            <td>李华</td>
+                                            <td>13243320296</td>
+                                            <td>
+                                                <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs">重置密码</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>天下集团</td>
+                                            <td>郑州</td>
+                                            <td>校内培训</td>
+                                            <td>李华</td>
+                                            <td>13243320296</td>
+                                            <td>
+                                                <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs">重置密码</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>天下集团</td>
+                                            <td>郑州</td>
+                                            <td>校内培训</td>
+                                            <td>李华</td>
+                                            <td>13243320296</td>
+                                            <td>
+                                                <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs">重置密码</a>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                                <div class="card-footer clearfix">
+                                    <ul class="pagination pagination-sm m-0 float-right">
+                                        <li class="page-item"><a class="page-link" href="#">«</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">»</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+    </div>
+    <div th:replace="common/f_bottom :: bottom"></div>
+</body>
+</html>

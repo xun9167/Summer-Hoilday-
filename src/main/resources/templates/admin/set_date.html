@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/f_header::head('时间设置')"></head>
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <div th:replace="common/f_navbar :: navbar('时间设置')"></div>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <div th:replace="common/f_sidebar :: sidebar_admin"></div>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+
+
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <!-- <div class="col-sm-6">
+                          <h1 class="m-0 text-dark">Dashboard</h1>
+                        </div> -->
+
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+
+
+            <!-- Main content -->
+            <section class="content">
+
+                <button class="btn btn-success"  style="margin: -15px 0 15px 10px">
+                    导入
+                </button>
+<!--                <button type="button" class="btn btn-block btn-primary btn-sm">导入</button>-->
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class='col-sm-6'>
+                            <div class="form-group">
+                                <label>选择日期：</label>
+                                <!--指定 date标记-->
+                                <div class='input-group date' id='datetimepicker1'>
+                                    <input type='text' class="form-control" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+    </div>
+    <div th:replace="common/f_bottom :: bottom"></div>
+    <script>
+        $(function () {
+            $('#datetimepicker1').datetimepicker({
+                format: 'YYYY-MM-DD',
+                locale: moment.locale('zh-cn')
+            });
+        });
+    </script>
+</body>
+</html>
