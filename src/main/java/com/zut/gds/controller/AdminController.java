@@ -90,6 +90,11 @@ public class AdminController {
         studentinfoService.save(studentinfo);
         return "admin/teacher_info";
     }
+    /*
+    此函数为修改企业密码
+    密码为phone
+
+     */
     @GetMapping("/distributionCompany")
     public String distributionTeacher(Companyinfo companyinfo){
         companyinfoService.save(companyinfo);
