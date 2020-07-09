@@ -31,9 +31,11 @@ public class AdminController {
     private CompanyinfoService companyinfoService;
 
     @GetMapping("/admininfo")
-    public String admininfoPage(Teacherinfo teacherinfo)
+    public String admininfoPage(/*Teacherinfo teacherinfo*/)
     {
+        /*
         teacherinfoService.save(teacherinfo);
+        */
         return "admin/admin_info";
     }
 
@@ -62,7 +64,8 @@ public class AdminController {
     }
 
     @GetMapping("/teacherinfo")
-    public String teacherinfoPage(){
+    public String teacherinfoPage(/*Teacherinfo teacherinfo*/){
+        
         return "admin/teacher_info";
     }
 }
