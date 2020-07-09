@@ -1,7 +1,18 @@
 package com.zut.gds.controller;
 
+import com.zut.gds.entity.Companyfileinfo;
+import com.zut.gds.entity.Companyinfo;
+import com.zut.gds.service.CompanyinfoService;
+import com.zut.gds.service.TeacherinfoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,14 +24,24 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class AdminController {
+    @Autowired
+    private TeacherinfoService teacherinfoService;
+    @Autowired
+    private CompanyinfoService companyinfoService;
 
     @GetMapping("/admininfo")
-    public String admininfoPage(){
+    public String admininfoPage()
+    {
         return "admin/admin_info";
     }
 
     @GetMapping("/companyinfo")
-    public String companyinfoPage(){
+    public String companyinfoPage(Model model){
+        /*
+
+         */
+        List<Companyinfo> companyfileinfos=companyinfoService.list();
+        model.addAttribute("CompanyList",companyfileinfos);
         return "admin/company_info";
     }
 
