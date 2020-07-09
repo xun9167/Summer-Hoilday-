@@ -2,8 +2,10 @@ package com.zut.gds.controller;
 
 import com.zut.gds.entity.Companyfileinfo;
 import com.zut.gds.entity.Companyinfo;
+import com.zut.gds.entity.Studentinfo;
 import com.zut.gds.entity.Teacherinfo;
 import com.zut.gds.service.CompanyinfoService;
+import com.zut.gds.service.StudentinfoService;
 import com.zut.gds.service.TeacherinfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
@@ -29,6 +31,8 @@ public class AdminController {
     private TeacherinfoService teacherinfoService;
     @Autowired
     private CompanyinfoService companyinfoService;
+    @Autowired
+    private StudentinfoService studentinfoService;
 
     @GetMapping("/admininfo")
     public String admininfoPage(/*Teacherinfo teacherinfo*/)
@@ -58,14 +62,31 @@ public class AdminController {
         return "admin/set_password";
     }
 
+    /*
+    学生的密码也是phone
+     */
     @GetMapping("/studentinfo")
-    public String studentinfoPage(){
+    public String studentinfoPage(Studentinfo studentinfo){
+        studentinfoService.save(studentinfo);
         return "admin/student_info";
     }
 
     @GetMapping("/teacherinfo")
-    public String teacherinfoPage(/*Teacherinfo teacherinfo*/){
-        
+    /*
+    在此函数中phone为密码
+     */
+    public String teacherinfoPage(Teacherinfo teacherinfo){
+        teacherinfoService.save(teacherinfo);
+        return "admin/teacher_info";
+    }
+    /*
+    对应studentInfo下分配教师 按钮
+     */
+    @GetMapping("/distributionTeacher")
+    public String distributionTeacher(String StudentID,String TeacherID){
+        Studentinfo studentinfo=studentinfoService.getById(StudentID);
+        studentinfo.setTeacherID(TeacherID);
+        studentinfoService.save(studentinfo);
         return "admin/teacher_info";
     }
 }
