@@ -56,6 +56,7 @@ public class AdminController {
 
     @GetMapping("/setdate")
     public String setdatePage(){
+
         return "admin/set_date";
     }
 
@@ -65,12 +66,11 @@ public class AdminController {
     }
 
     /*
-    学生的密码也是phone
-    此函数对应studentInfo下的重置密码按钮
+
      */
     @GetMapping("/studentinfo")
-    public String studentinfoPage(Studentinfo studentinfo){
-        studentinfoService.save(studentinfo);
+    public String studentinfoPage(){
+
         return "admin/student_info";
     }
 
@@ -95,11 +95,12 @@ public class AdminController {
     /*
     此函数为修改企业密码
     密码为phone
-
      */
     @PostMapping("/distributionCompany")
     public String updateCompanyPassword(@RequestParam(name = "id") String id,@RequestParam(name = "password") String password){
-
-        return "admin/teacher_info";
+        Companyinfo companyinfo=companyinfoService.getById(id);
+        companyinfo.setCompanyName(password);
+        companyinfoService.save(companyinfo);
+        return "admin/company_info";
     }
 }
