@@ -54,6 +54,7 @@ public class AdminController {
 
     @GetMapping("/setdate")
     public String setdatePage(){
+
         return "admin/set_date";
     }
 
@@ -96,8 +97,8 @@ public class AdminController {
 
      */
     @GetMapping("/distributionCompany")
-    public String distributionTeacher(Companyinfo companyinfo){
-        companyinfoService.save(companyinfo);
+    public String distributionCompany(@RequestBody String id,@RequestBody String password){
+
         return "admin/teacher_info";
     }
 }
