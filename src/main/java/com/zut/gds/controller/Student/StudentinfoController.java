@@ -25,6 +25,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller
 @RequestMapping("/student")
+
 public class StudentinfoController {
     @Autowired
     private StudentinfoService studentinfoService;
