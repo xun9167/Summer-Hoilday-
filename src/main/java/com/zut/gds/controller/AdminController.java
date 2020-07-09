@@ -65,6 +65,8 @@ public class AdminController {
 
     /*
     获取学生信息页面数据
+
+
      */
     @GetMapping("/studentinfo")
     public String studentinfoPage(Model model){
@@ -85,6 +87,7 @@ public class AdminController {
         }
         model.addAttribute("studentList",studentInfoResvos);
         return "admin/student_info";
+
     }
     /*
     修改stydentInfo页面密码
