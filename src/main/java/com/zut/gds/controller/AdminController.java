@@ -2,6 +2,7 @@ package com.zut.gds.controller;
 
 import com.zut.gds.entity.Companyfileinfo;
 import com.zut.gds.entity.Companyinfo;
+import com.zut.gds.entity.Teacherinfo;
 import com.zut.gds.service.CompanyinfoService;
 import com.zut.gds.service.TeacherinfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,15 +31,15 @@ public class AdminController {
     private CompanyinfoService companyinfoService;
 
     @GetMapping("/admininfo")
-    public String admininfoPage()
+    public String admininfoPage(Teacherinfo teacherinfo)
     {
+        teacherinfoService.save(teacherinfo);
         return "admin/admin_info";
     }
 
     @GetMapping("/companyinfo")
     public String companyinfoPage(Model model){
         /*
-
          */
         List<Companyinfo> companyfileinfos=companyinfoService.list();
         model.addAttribute("CompanyList",companyfileinfos);
