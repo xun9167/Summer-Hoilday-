@@ -64,6 +64,7 @@ public class AdminController {
 
     /*
     学生的密码也是phone
+    此函数对应studentInfo下的重置密码按钮
      */
     @GetMapping("/studentinfo")
     public String studentinfoPage(Studentinfo studentinfo){
@@ -87,6 +88,11 @@ public class AdminController {
         Studentinfo studentinfo=studentinfoService.getById(StudentID);
         studentinfo.setTeacherID(TeacherID);
         studentinfoService.save(studentinfo);
+        return "admin/teacher_info";
+    }
+    @GetMapping("/distributionCompany")
+    public String distributionTeacher(Companyinfo companyinfo){
+        companyinfoService.save(companyinfo);
         return "admin/teacher_info";
     }
 }
