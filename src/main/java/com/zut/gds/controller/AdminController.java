@@ -13,7 +13,9 @@ import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -95,9 +97,9 @@ public class AdminController {
     密码为phone
 
      */
-    @GetMapping("/distributionCompany")
-    public String distributionTeacher(Companyinfo companyinfo){
-        companyinfoService.save(companyinfo);
+    @PostMapping("/distributionCompany")
+    public String updateCompanyPassword(@RequestParam(name = "id") String id,@RequestParam(name = "password") String password){
+
         return "admin/teacher_info";
     }
 }
