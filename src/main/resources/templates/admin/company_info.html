@@ -55,62 +55,12 @@
                                         </tr>
                                         </thead>
                                         <tbody style="text-align: center;">
-                                        <tr>
-                                            <td>天下集团</td>
-                                            <td>郑州</td>
-                                            <td>校内培训</td>
-                                            <td>李华</td>
-                                            <td>13243320296</td>
-                                            <td>
-                                                <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs">重置密码</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>天下集团</td>
-                                            <td>郑州</td>
-                                            <td>校内培训</td>
-                                            <td>李华</td>
-                                            <td>13243320296</td>
-                                            <td>
-                                                <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs">重置密码</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>天下集团</td>
-                                            <td>郑州</td>
-                                            <td>校内培训</td>
-                                            <td>李华</td>
-                                            <td>13243320296</td>
-                                            <td>
-                                                <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs">重置密码</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>天下集团</td>
-                                            <td>郑州</td>
-                                            <td>校内培训</td>
-                                            <td>李华</td>
-                                            <td>13243320296</td>
-                                            <td>
-                                                <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs">重置密码</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>天下集团</td>
-                                            <td>郑州</td>
-                                            <td>校内培训</td>
-                                            <td>李华</td>
-                                            <td>13243320296</td>
-                                            <td>
-                                                <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs">重置密码</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>天下集团</td>
-                                            <td>郑州</td>
-                                            <td>校内培训</td>
-                                            <td>李华</td>
-                                            <td>13243320296</td>
+                                        <tr th:each="company : ${CompanyList}">
+                                            <td th:text="${company.CompanyName}">天下集团</td>
+                                            <td th:text="${company.CompanyCity}">郑州</td>
+                                            <td th:text="${company.CompanyType1} == 1 ? '校内实训': '校外实训'">校内培训</td>
+                                            <td th:text="${company.Contacts}">李华</td>
+                                            <td th:text="${company.CompanyPhone}">13243320296</td>
                                             <td>
                                                 <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs">重置密码</a>
                                             </td>
