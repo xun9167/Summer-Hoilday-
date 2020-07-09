@@ -13,7 +13,9 @@ import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -54,7 +56,6 @@ public class AdminController {
 
     @GetMapping("/setdate")
     public String setdatePage(){
-
         return "admin/set_date";
     }
 
@@ -96,8 +97,8 @@ public class AdminController {
     密码为phone
 
      */
-    @GetMapping("/distributionCompany")
-    public String distributionCompany(@RequestBody String id,@RequestBody String password){
+    @PostMapping("/distributionCompany")
+    public String updateCompanyPassword(@RequestParam(name = "id") String id,@RequestParam(name = "password") String password){
 
         return "admin/teacher_info";
     }
