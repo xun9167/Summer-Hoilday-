@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="common/f_header::head('学生信息管理')"></head>
+<head th:replace="common/f_header::head('公司信息查看')"></head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
         <!-- Navbar -->
-        <div th:replace="common/f_navbar :: navbar('学生信息管理')"></div>
+        <div th:replace="common/f_navbar :: navbar('公司信息查看')"></div>
         <!-- /.navbar -->
         <!-- Main Sidebar Container -->
-        <div th:replace="common/f_sidebar :: sidebar_admin"></div>
+        <div th:replace="common/f_sidebar :: sidebar_student"></div>
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
@@ -46,34 +46,26 @@
                                     <table class="table table-bordered">
                                         <thead style="text-align: center;">
                                         <tr>
-                                            <th style="width: 80px">学号</th>
-                                            <th>姓名</th>
-                                            <th>性别</th>
-                                            <th>班级</th>
-                                            <th>实训去向</th>
+                                            <th style="width: 150px">公司名称</th>
+                                            <th>培训方式</th>
+                                            <th>联系人</th>
                                             <th>联系方式</th>
+                                            <th>培训大纲</th>
                                             <th style="width: 100px">操作</th>
-                                            <th style="width: 100px">分配</th>
                                         </tr>
                                         </thead>
                                         <tbody style="text-align: center;">
-                                        <tr th:each="student : ${studentList}">
-                                            <td th:text="${student.StudentID}">201819164234</td>
-                                            <td th:text="${student.StudentName}">王五</td>
-                                            <td th:text="${student.StudentSex}">男</td>
-                                            <td>卓越181</td>
-                                            <td th:text="${student.DirectionName}">校内实训</td>
-                                            <td th:text="${student.StudentPhone}">13243320296</td>
+                                        <tr th:each="company : ${CompanyList}">
+                                            <td th:text="${company.CompanyName}">天下集团</td>
+                                            <td th:text="${company.CompanyCity}">郑州</td>
+                                            <td th:text="${company.CompanyType1} == 1 ? '校内实训': '校外实训'">校内培训</td>
+                                            <td th:text="${company.Contacts}">李华</td>
+                                            <td th:text="${company.CompanyPhone}">13243320296</td>
                                             <td>
                                                 <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs"
-                                                   th:onclick="javascript:showedit([[${student.StudentID}]])">重置密码</a>
-                                            </td>
-                                            <td>
-                                                <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs"
-                                                   th:onclick="javascript:showedit([[${student.StudentID}]])">分配教师</a>
+                                                   th:onclick="javascript:showedit([[${company.CompanyID}]])">重置密码</a>
                                             </td>
                                         </tr>
-
                                         </tbody>
                                     </table>
                                 </div>
@@ -91,31 +83,32 @@
                             <!-- /.card -->
                         </div>
                     </div>
+
+                    <!-- 编辑 模态框（Modal） -->
+                    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h6 class="modal-title" id="editModalLabel">修改密码</h6>
+                                </div>
+                                <form th:action="@{/distributionCompany}" method="post">
+                                    <div class="modal-body">
+                                        <input id="tagid" name="id" type="hidden">
+                                        <label>修改密码：</label>
+                                        <input name="password" type="text">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <button type="submit" class="btn btn-primary">提交</button>
+                                    </div>
+                                </form>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal -->
+                    </div>
                 </div>
             </section>
 
-            <!-- 编辑 模态框（Modal） -->
-            <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h6 class="modal-title" id="editModalLabel">修改密码</h6>
-                        </div>
-                        <form th:action="@{/distributionCompany}" method="post">
-                            <div class="modal-body">
-                                <input id="tagid" name="id" type="hidden">
-                                <label>修改密码：</label>
-                                <input name="password" type="text">
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                                <button type="submit" class="btn btn-primary">提交</button>
-                            </div>
-                        </form>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal -->
-            </div>
         </div>
 
     </div>
