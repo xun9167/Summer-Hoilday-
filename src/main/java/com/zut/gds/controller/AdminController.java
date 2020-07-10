@@ -125,7 +125,7 @@ public class AdminController {
     @PostMapping("/distributionCompany")
     public String updateCompanyPassword(@RequestParam(name = "id") String id,@RequestParam(name = "password") String password){
         Companyinfo companyinfo=companyinfoService.getById(id);
-        companyinfo.setCompanyName(password);
+        companyinfo.setCompanyPhone(password);
         companyinfoService.save(companyinfo);
         return "admin/company_info";
     }
