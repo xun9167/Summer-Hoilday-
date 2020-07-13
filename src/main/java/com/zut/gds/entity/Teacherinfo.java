@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 /**
  * <p>
@@ -17,6 +18,7 @@ import lombok.EqualsAndHashCode;
  * @since 2020-07-08
  */
 @Data
+@ToString
 @EqualsAndHashCode(callSuper = false)
 public class Teacherinfo implements Serializable {
 
@@ -37,6 +39,7 @@ public class Teacherinfo implements Serializable {
     @TableField("TeacherEmail")
     private String TeacherEmail;
 
+    @TableField("role")
     private Integer role;
 
     @TableField("endTime")

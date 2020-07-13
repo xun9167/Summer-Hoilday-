@@ -54,72 +54,24 @@
                                         </tr>
                                         </thead>
                                         <tbody style="text-align: center;">
-                                        <tr>
-                                            <td>张三</td>
-                                            <td>女</td>
-                                            <td>13243320296</td>
-                                            <td>*********@qq.com</td>
+                                        <tr th:each="teacher : ${pages.list}">
+                                            <td th:text="${teacher.TeacherName}">张三</td>
+                                            <td th:text="${teacher.TeacherSex}">女</td>
+                                            <td th:text="${teacher.TeacherPhone}">13243320296</td>
+                                            <td th:text="${teacher.TeacherEmail}">*********@qq.com</td>
                                             <td>
-                                                <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs">重置密码</a>
+                                                <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs"
+                                                   th:onclick="javascript:showedit([[${teacher.TeacherID}]])"
+                                                >重置密码</a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>张三</td>
-                                            <td>女</td>
-                                            <td>13243320296</td>
-                                            <td>*********@qq.com</td>
-                                            <td>
-                                                <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs">重置密码</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>张三</td>
-                                            <td>女</td>
-                                            <td>13243320296</td>
-                                            <td>*********@qq.com</td>
-                                            <td>
-                                                <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs">重置密码</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>张三</td>
-                                            <td>女</td>
-                                            <td>13243320296</td>
-                                            <td>*********@qq.com</td>
-                                            <td>
-                                                <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs">重置密码</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>张三</td>
-                                            <td>女</td>
-                                            <td>13243320296</td>
-                                            <td>*********@qq.com</td>
-                                            <td>
-                                                <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs">重置密码</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>张三</td>
-                                            <td>女</td>
-                                            <td>13243320296</td>
-                                            <td>*********@qq.com</td>
-                                            <td>
-                                                <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs">重置密码</a>
-                                            </td>
-                                        </tr>
+
                                         </tbody>
                                     </table>
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer clearfix">
-                                    <ul class="pagination pagination-sm m-0 float-right">
-                                        <li class="page-item"><a class="page-link" href="#">«</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">»</a></li>
-                                    </ul>
+                                    <div th:insert="common/f_pagination :: page('/admin/teacher')"></div>
                                 </div>
                             </div>
                             <!-- /.card -->
@@ -127,10 +79,39 @@
                     </div>
                 </div>
             </section>
-
+            <!-- 编辑 模态框（Modal） -->
+            <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 class="modal-title" id="editModalLabel">修改密码</h6>
+                        </div>
+                        <form th:action="@{/admin/changepassword}" method="post">
+                            <div class="modal-body">
+                                <input id="tagid" name="id" type="hidden">
+                                <label>修改密码：</label>
+                                <input name="password" type="text">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                <button type="submit" class="btn btn-primary">提交</button>
+                            </div>
+                        </form>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
         </div>
 
     </div>
     <div th:replace="common/f_bottom :: bottom"></div>
+    <script>
+
+        function showedit(id) {
+            $('#editModal').modal('show');
+            $('#tagid').val(id);
+        }
+
+    </script>
 </body>
 </html>

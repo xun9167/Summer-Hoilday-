@@ -16,6 +16,11 @@ import org.springframework.stereotype.Controller;
 import javax.servlet.http.HttpServletRequest;
 
 /**
+ * 此代码暂时弃用
+ */
+
+
+/**
  * <p>
  *  前端控制器
  * </p>
@@ -23,7 +28,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author huaxiaoyu
  * @since 2020-07-08
  */
-@Controller
+//@Controller
 @RequestMapping("/student")
 
 public class StudentinfoController {

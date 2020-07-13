@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:fragment="page(url)">
+        <ul class="pagination pagination-sm m-0 float-right">
+            <li class="page-item"><a class="page-link" th:href="@{${url}(page=${pages.first})}">«</a></li>
+            <li class="page-item"><a class="page-link" th:href="@{${url}(page=${pages.current}+1)}"
+                                     th:text="${pages.current}+1"
+                                     th:classappend="${pages.current+1 gt pages.last ? 'hidden':''}"
+            >1</a></li>
+            <li class="page-item"><a class="page-link" th:href="@{${url}(page=${pages.current}+2)}"
+                                     th:text="${pages.current}+2"
+                                     th:classappend="${pages.current+2 gt pages.last ? 'hidden':''}"
+            >2</a></li>
+            <li class="page-item"><a class="page-link" th:href="@{${url}(page=${pages.current}+3)}"
+                                     th:text="${pages.current}+3"
+                                     th:classappend="${pages.current+3 gt pages.last ? 'hidden':''}"
+            >3</a></li>
+            <li class="page-item"><a class="page-link" th:href="@{${url}(page=${pages.last})}">»</a></li>
+        </ul>
+    </div>
+</body>
+</html>

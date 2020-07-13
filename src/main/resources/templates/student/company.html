@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="common/f_header::head('实训公司信息管理')"></head>
+<head th:replace="common/f_header::head('公司信息查看')"></head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
         <!-- Navbar -->
-        <div th:replace="common/f_navbar :: navbar('实训公司信息管理')"></div>
+        <div th:replace="common/f_navbar :: navbar('公司信息查看')"></div>
         <!-- /.navbar -->
         <!-- Main Sidebar Container -->
-        <div th:replace="common/f_sidebar :: sidebar_admin"></div>
+        <div th:replace="common/f_sidebar :: sidebar_student"></div>
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
@@ -47,32 +47,36 @@
                                         <thead style="text-align: center;">
                                         <tr>
                                             <th style="width: 150px">公司名称</th>
-                                            <th>所在城市</th>
                                             <th>培训方式</th>
                                             <th>联系人</th>
                                             <th>联系方式</th>
-                                            <th style="width: 100px">操作</th>
+                                            <th>培训大纲</th>
                                         </tr>
                                         </thead>
                                         <tbody style="text-align: center;">
-                                        <tr th:each="company : ${pages.list}">
+                                        <tr th:each="company : ${CompanyList}">
                                             <td th:text="${company.CompanyName}">天下集团</td>
                                             <td th:text="${company.CompanyCity}">郑州</td>
                                             <td th:text="${company.CompanyType1} == 1 ? '校内实训': '校外实训'">校内培训</td>
                                             <td th:text="${company.Contacts}">李华</td>
                                             <td th:text="${company.CompanyPhone}">13243320296</td>
-                                            <td>
-                                                <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs"
-                                                   th:onclick="javascript:showedit([[${company.CompanyID}]])">重置密码</a>
-                                            </td>
+<!--                                            <td>-->
+<!--                                                <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs"-->
+<!--                                                   th:onclick="javascript:showedit([[${company.CompanyID}]])">重置密码</a>-->
+<!--                                            </td>-->
                                         </tr>
                                         </tbody>
                                     </table>
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer clearfix">
-                                    <div th:insert="common/f_pagination :: page('/admin/company')"></div>
-
+                                    <ul class="pagination pagination-sm m-0 float-right">
+                                        <li class="page-item"><a class="page-link" href="#">«</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">»</a></li>
+                                    </ul>
                                 </div>
                             </div>
                             <!-- /.card -->
@@ -87,7 +91,7 @@
                                 <div class="modal-header">
                                     <h6 class="modal-title" id="editModalLabel">修改密码</h6>
                                 </div>
-                                <form th:action="@{/admin/changecompanypwd}" method="post">
+                                <form th:action="@{/distributionCompany}" method="post">
                                     <div class="modal-body">
                                         <input id="tagid" name="id" type="hidden">
                                         <label>修改密码：</label>

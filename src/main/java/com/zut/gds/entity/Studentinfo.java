@@ -4,8 +4,11 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+
+import com.zut.gds.enums.StudentDirectionEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 /**
  * <p>
@@ -16,6 +19,7 @@ import lombok.EqualsAndHashCode;
  * @since 2020-07-08
  */
 @Data
+@ToString
 @EqualsAndHashCode(callSuper = false)
 public class Studentinfo implements Serializable {
 
@@ -54,8 +58,10 @@ public class Studentinfo implements Serializable {
     @TableField("parentsPhone")
     private String parentsPhone;
 
-    @TableField("PracticeDirection")
-    private String PracticeDirection;
+//    @TableField("PracticeDirection")
+//    private String PracticeDirection;
+
+    private StudentDirectionEnum PracticeDirection;
 
     @TableField("CompanyID")
     private String CompanyID;

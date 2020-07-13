@@ -1,6 +1,24 @@
 spring:
-  profiles:
-    active: dev
-
+  resources:
+    static-locations: classpath:/static/
+  mvc:
+    static-path-pattern: /static/**
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+  thymeleaf:
+    cache: false
+  datasource:
+    url: jdbc:mysql://122.51.203.18:3306/GraManagement?characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: GraManagement
+    password: GraManagement
+server:
+  port: 8080
 mybatis-plus:
-#  mapper-locations:classpath:com/zut/gds/mapper
+  configuration:
+    map-underscore-to-camel-case: false
+  type-enums-package: com.zut.gds.enums
+
