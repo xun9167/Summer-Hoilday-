@@ -37,42 +37,53 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form role="form">
+                                <form role="form" th:action="@{/student/person}" method="post">
+                                    <input type="hidden" name="TeacherID" th:value="${student.teacherID}">
+                                    <input type="hidden" name="teacherResult" th:value="${student.teacherResult}">
+                                    <input type="hidden" name="companyResult" th:value="${student.teacherID}">
+                                    <input type="hidden" name="TrainingResult" th:value="${student.trainingResult}">
+                                    <input type="hidden" name="CompanyName" th:value="${student.companyName}">
+                                    <input type="hidden" name="parentsPhone" th:value="${student.parentsPhone}">
+                                   <!--<input type="hidden" name="PracticeDirection" th:value="${student.practiceDirection}">-->
+                                    <input type="hidden" name="CompanyID" th:value="${student.companyID}">
+                                    <input type="hidden" name="subject" th:value="${student.subject}">
+                                    <input type="hidden" name="StudentClassID" th:value="${student.studentClassID}">
+                                    <input type="hidden" name="StudentFileID" th:value="${student.studentFileID}">
                                     <div class="card-body">
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">学号</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control"  placeholder="请输入工号">
+                                                <input type="text" class="form-control" name="StudentID" placeholder="请输入工号">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label  class="col-sm-2 col-form-label">姓名</label>
+                                            <label  class="col-sm-2 col-form-label" >姓名</label>
                                             <div class="col-sm-10">
-                                            <input type="text" class="form-control"  placeholder="张三">
+                                            <input type="text" class="form-control" name="StudentName" th:value="${student.studentName}">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label  class="col-sm-2 col-form-label">性别</label>
                                             <div class="col-sm-10">
-                                            <input type="text" class="form-control"  placeholder="男">
+                                            <input type="text" class="form-control" name="StudentSex" th:value="${student.studentSex}">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label  class="col-sm-2 col-form-label">邮箱</label>
+                                            <label  class="col-sm-2 col-form-label" >邮箱</label>
                                             <div class="col-sm-10">
-                                            <input type="email" class="form-control"  placeholder="********@qq.com">
+                                            <input type="email" class="form-control" name="StudentEmail" th:value="${student.studentEmail}">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label  class="col-sm-2 col-form-label">联系方式</label>
                                             <div class="col-sm-10">
-                                            <input type="text" class="form-control"  placeholder="13243320296">
+                                            <input type="text" class="form-control" name="StudentPhone" th:value="${student.studentPhone}">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label  class="col-sm-2 col-form-label">家长联系方式</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control"  placeholder="13243320296">
+                                                <input type="text" class="form-control"  name="parentsPhone" th:value="${student.parentsPhone}">
                                             </div>
                                         </div>
                                         

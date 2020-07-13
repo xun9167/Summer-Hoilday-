@@ -47,14 +47,14 @@
                                         <thead style="text-align: center;">
                                         <tr>
                                             <th style="width: 150px">公司名称</th>
+                                            <th>所在城市</th>
                                             <th>培训方式</th>
                                             <th>联系人</th>
                                             <th>联系方式</th>
-                                            <th>培训大纲</th>
                                         </tr>
                                         </thead>
                                         <tbody style="text-align: center;">
-                                        <tr th:each="company : ${CompanyList}">
+                                        <tr th:each="company : ${pages.list}">
                                             <td th:text="${company.CompanyName}">天下集团</td>
                                             <td th:text="${company.CompanyCity}">郑州</td>
                                             <td th:text="${company.CompanyType1} == 1 ? '校内实训': '校外实训'">校内培训</td>

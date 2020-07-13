@@ -26,9 +26,7 @@ public class AdminPwdController extends AdminBaseController{
 
     @PostMapping("/changeadminpwd")
     public String changepwd(@RequestParam("password")String password,
-                            HttpSession session
-                            ){
-
+                            HttpSession session){
         Integer adminLoginId = (Integer)session.getAttribute("adminLoginId");
         Teacherinfo tbyId = teacherinfoService.getById(adminLoginId);
         tbyId.setTeacherPhone(password);
