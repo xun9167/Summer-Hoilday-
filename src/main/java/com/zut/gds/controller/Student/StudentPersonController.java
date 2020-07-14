@@ -31,6 +31,7 @@ public class StudentPersonController extends StudentBaseController{
     }
     @PostMapping ("/person")
     public String personHandle(Studentinfo studentinfo){
+        System.out.println(studentinfo);
         studentinfoService.updateById(studentinfo);
         return "redirect:/student/person";
     }

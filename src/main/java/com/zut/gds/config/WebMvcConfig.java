@@ -29,7 +29,8 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
     protected void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(testIntercepter)
                 .addPathPatterns("/admin/**")
-                .addPathPatterns("/teacher/**");
+                .addPathPatterns("/teacher/**")
+                .addPathPatterns("/student/**");
     }
 
     @Override
