@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class CompanyFileController extends CompanyBaseController {
-//这里没有写
+//这里没有写。
     @GetMapping("/file")
     public String filePage(){
         return "company/file";

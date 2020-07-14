@@ -26,7 +26,7 @@ public class CompanyStudentController extends AdminBaseController {
 
 
 /*
-查看该公司所管辖的所有学生的信息
+查看该公司所管辖的所有学生的信息。
  */
     @GetMapping("/student")
     public String studentPage(Model model, @RequestParam(value = "page",defaultValue = "1")Integer pageindex, HttpServletRequest request){

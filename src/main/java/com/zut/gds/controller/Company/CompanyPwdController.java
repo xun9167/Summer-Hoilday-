@@ -32,7 +32,7 @@ public class CompanyPwdController extends CompanyBaseController {
         this.loginService = loginService;
     }
 /*
-修改密码
+修改密码。
  */
     @GetMapping("/setpwd")
     public String pwdPage(){

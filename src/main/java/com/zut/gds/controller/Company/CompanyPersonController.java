@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class CompanyPersonController extends CompanyBaseController {
 /*
-查看个人信息
+查看个人信息。
  */
     @GetMapping("/person")
     public String personPage(Model model, HttpServletRequest request){

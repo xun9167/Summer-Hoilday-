@@ -23,7 +23,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class CompanyGradeController extends CompanyBaseController {
     /*
-    查看该公司所管辖的所有学生的成绩信息
+    查看该公司所管辖的所有学生的成绩信息。
      */
     @GetMapping("/grade")
     public String gradePage(Model model,
