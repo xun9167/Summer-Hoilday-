@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/f_header::head('录入成绩')"></head>
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <div th:replace="common/f_navbar :: navbar('录入成绩')"></div>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <div th:replace="common/f_sidebar :: sidebar_teacher"></div>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+
+
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <!-- <div class="col-sm-6">
+                          <h1 class="m-0 text-dark">Dashboard</h1>
+                        </div> -->
+
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-8 col-12" style="margin: 0 auto">
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    <h3 class="card-title">录入成绩</h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <!-- form start -->
+                                <form role="form" th:action="@{/teacher/savegrade}" method="post">
+                                    <input name="StudentID" type="hidden" th:value="${student.StudentID}">
+                                    <div class="card-body">
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">学号</label>
+                                            <div class="col-sm-10">
+                                                <input disabled="true" name="StudentID" type="text" class="form-control" th:value="${student.StudentID}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label  class="col-sm-2 col-form-label">姓名</label>
+                                            <div class="col-sm-10">
+                                            <input disabled="true" type="text" class="form-control" th:value="${student.StudentName}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label  class="col-sm-2 col-form-label">实训题目</label>
+                                            <div class="col-sm-10">
+                                            <input disabled="true" type="text" class="form-control" th:value="${student.subject}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label  class="col-sm-2 col-form-label">教师成绩</label>
+                                            <div class="col-sm-10">
+                                            <input type="text" name="teacherResult" class="form-control" th:value="${student.teacherResult}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label  class="col-sm-2 col-form-label">公司成绩</label>
+                                            <div class="col-sm-10">
+                                            <input disabled="true" type="text" class="form-control" th:value="${student.companyResult}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label  class="col-sm-2 col-form-label">最终成绩</label>
+                                            <div class="col-sm-10">
+                                                <input disabled="true" type="text" class="form-control" th:value="${student.TrainingResult}">
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <!-- /.card-body -->
+
+                                    <div class="card-footer">
+                                        <button type="submit" class="btn btn-primary float-right">保存修改</button>
+                                        <a th:href="@{/teacher/grade}" type="button" class="btn btn-primary float-left">取消</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+
+        </div>
+
+    </div>
+    <div th:replace="common/f_bottom :: bottom"></div>
+</body>
+</html>

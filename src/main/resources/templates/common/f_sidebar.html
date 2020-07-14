@@ -170,5 +170,67 @@
     </div>
     <!-- /.sidebar -->
 </aside>
+
+<!--sidebar-->
+<aside class="main-sidebar sidebar-dark-primary elevation-4" th:fragment="sidebar_teacher">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+        <img th:src="@{/static/admin/dist/img/zut.jpg}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">毕业实训管理系统</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                <li class="nav-item">
+                    <a th:href="@{/teacher/person}" class="nav-link">
+                        <i class="far fa-pencil-square-o nav-icon"></i>
+                        <p>
+                            个人信息管理
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/teacher/studentinfo}" class="nav-link">
+                        <i class="far fa-pencil-square-o nav-icon"></i>
+                        <p>
+                            学生信息查看
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/teacher/grade}" class="nav-link">
+                        <i class="far fa-pencil-square-o nav-icon"></i>
+                        <p>
+                            成绩录入
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/teacher/file}" class="nav-link">
+                        <i class="far fa-pencil-square-o nav-icon"></i>
+                        <p>
+                            文件下载
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/teacher/setpwd}" class="nav-link">
+                        <i class="far fa-pencil-square-o nav-icon"></i>
+                        <p>
+                            密码修改
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>
 </body>
 </html>

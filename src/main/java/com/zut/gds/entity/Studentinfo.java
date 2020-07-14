@@ -58,10 +58,10 @@ public class Studentinfo implements Serializable {
     @TableField("parentsPhone")
     private String parentsPhone;
 
-//    @TableField("PracticeDirection")
-//    private String PracticeDirection;
+    @TableField("PracticeDirection")
+    private String PracticeDirection;
 
-    private StudentDirectionEnum PracticeDirection;
+//    private StudentDirectionEnum PracticeDirection;
 
     @TableField("CompanyID")
     private String CompanyID;
