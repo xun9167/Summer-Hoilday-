@@ -28,7 +28,7 @@ public class CompanyStudentController extends AdminBaseController {
 /*
 查看该公司所管辖的所有学生的信息。
  */
-    @GetMapping("/student2")
+    @GetMapping("/studentinfo")
     public String studentPage(Model model, @RequestParam(value = "page",defaultValue = "1")Integer pageindex, HttpServletRequest request){
         Page<Studentinfo> page = new Page<>(pageindex,6);
         HttpSession session = request.getSession();
@@ -42,7 +42,7 @@ public class CompanyStudentController extends AdminBaseController {
 
 //        List<Teacherinfo> teacherList = teacherinfoService.list();
 //        model.addAttribute("teachers", teacherList);
-        return "company/student_info";
+        return "company/student";
     }
 
 //实训公司只能查看不能修改
