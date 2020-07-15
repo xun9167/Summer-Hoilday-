@@ -30,7 +30,8 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
         registry.addInterceptor(testIntercepter)
                 .addPathPatterns("/admin/**")
                 .addPathPatterns("/teacher/**")
-                .addPathPatterns("/student/**");
+                .addPathPatterns("/student/**")
+                .addPathPatterns("/company/**");
     }
 
     @Override

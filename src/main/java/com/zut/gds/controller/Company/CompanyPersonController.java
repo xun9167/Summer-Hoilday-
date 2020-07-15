@@ -27,14 +27,16 @@ public class CompanyPersonController extends CompanyBaseController {
         HttpSession session = request.getSession();
         Integer id = (Integer)session.getAttribute("loginid");
         Companyinfo companyinfo = companyinfoService.getById(id);
+//        System.out.println(companyinfo);
         model.addAttribute("company", companyinfo);
-        return "company/company_info";
+        return "company/person";
     }
     /*
     个人信息修改
      */
     @PostMapping("/person")
     public String personHandle(Companyinfo companyinfo){
+//        System.out.println(companyinfo);
         companyinfoService.saveOrUpdate(companyinfo);
         return "redirect:/company/person";
     }

@@ -62,7 +62,7 @@
                                             <td th:text="${student.StudentName}">王五</td>
                                             <td th:text="${student.StudentSex}">男</td>
                                             <td>卓越181</td>
-                                            <td th:text="${student.PracticeDirection}">校内实训</td>
+                                            <td th:text="${student.PracticeDirection} == 0 ? '在校' : ${student.PracticeDirection} == 1 ? '学校合作' : '自行联系'">校内实训</td>
                                             <td th:text="${student.StudentPhone}">13243320296</td>
                                             <td>
                                                 <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs"

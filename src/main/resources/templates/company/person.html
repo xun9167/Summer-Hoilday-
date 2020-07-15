@@ -38,19 +38,19 @@
                             <!-- /.card-header -->
                             <!-- form start -->
                             <form role="form" th:action="@{/company/person}" method="post">
-                                <input type="hidden" name="CompanyID" th:value="${company.companyID}">
-                                <input type="hidden" name="CompanyName" th:value="${company.companyName}">
-                                <input type="hidden" name="CompanyType1" th:value="${company.getCompanyType1()}">
-                                <input type="hidden" name="CompanyCity" th:value="${company.companyCity}">
+<!--                                <input type="hidden" name="CompanyID" th:value="${company.companyID}">-->
+<!--                                <input type="hidden" name="CompanyName" th:value="${company.companyName}">-->
+<!--                                <input type="hidden" name="CompanyType1" th:value="${company.getCompanyType1()}">-->
+<!--                                <input type="hidden" name="CompanyCity" th:value="${company.companyCity}">-->
                                 <!--<input type="hidden" name="PracticeDirection" th:value="${student.practiceDirection}">-->
-                                <input type="hidden" name="Contacts" th:value="${company.contacts}">
-                                <input type="hidden" name="CompanyPhone" th:value="${company.companyPhone}">
+<!--                                <input type="hidden" name="Contacts" th:value="${company.contacts}">-->
+<!--                                <input type="hidden" name="CompanyPhone" th:value="${company.companyPhone}">-->
 
                                 <div class="card-body">
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">公司名称</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" th:value="${company.companyName}" disabled="true">
+                                            <input type="text" class="form-control" th:value="${company.companyName}">
                                             <input type="hidden" class="form-control" name="CompanyID"  th:value="${company.companyID}">
                                         </div>
                                     </div>
@@ -69,13 +69,12 @@
                                     <div class="form-group row">
                                         <label  class="col-sm-2 col-form-label" >联系人</label>
                                         <div class="col-sm-10">
-                                            <input type="email" class="form-control" name="Contacts" th:value="${company.contacts}">
+                                            <input type="text" class="form-control" name="Contacts" th:value="${company.contacts}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label  class="col-sm-2 col-form-label">联系电话</label>
                                         <div class="col-sm-10">
-
                                             <input type="text" class="form-control" name="CompanyPhone" th:value="${company.companyPhone}">
                                         </div>
                                     </div>
