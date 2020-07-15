@@ -30,30 +30,30 @@ public class CompanyPersonController extends CompanyBaseController {
     public String personPage(Model model, HttpServletRequest request){
         HttpSession session = request.getSession();
         Integer id = (Integer)session.getAttribute("loginid");
-<<<<<<< HEAD
-        Companyinfo companyinfo = companyinfoService.getById(id);
-//        System.out.println(companyinfo);
-        model.addAttribute("company", companyinfo);
-        return "company/person";
-=======
+//<<<<<<< HEAD
+//        Companyinfo companyinfo = companyinfoService.getById(id);
+////        System.out.println(companyinfo);
+//        model.addAttribute("company", companyinfo);
+//        return "company/person";
+//=======
         Companyinfo companyinfo = companyinfoService.getById(111);//id
         model.addAttribute("company", companyinfo);
         return "company/person";
 
->>>>>>> 4fb3f7b40eca75d09230097b6c81a417f5a4fe51
+//>>>>>>> 4fb3f7b40eca75d09230097b6c81a417f5a4fe51
     }
     /*
     个人信息修改
      */
     @PostMapping ("/person")
     public String personHandle(Companyinfo companyinfo){
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //        System.out.println(companyinfo);
-        companyinfoService.saveOrUpdate(companyinfo);
-=======
+//        companyinfoService.saveOrUpdate(companyinfo);
+//=======
         System.out.println(companyinfo);
         companyinfoService.updateById(companyinfo);
->>>>>>> 4fb3f7b40eca75d09230097b6c81a417f5a4fe51
+//>>>>>>> 4fb3f7b40eca75d09230097b6c81a417f5a4fe51
         return "redirect:/company/person";
     }
 

@@ -22,19 +22,19 @@ import javax.servlet.http.HttpSession;
  * @since 2020-07-14
  */
 @Controller
-public class CompanyStudentController extends AdminBaseController {
+public class CompanyStudentController extends CompanyBaseController {
 
 
 /*
 查看该公司所管辖的所有学生的信息。
  */
-    @GetMapping("/student2")
+    @GetMapping("/studentinfo")
     public String studentPage(Model model, @RequestParam(value = "page",defaultValue = "1")Integer pageindex, HttpServletRequest request){
         Page<Studentinfo> page = new Page<>(pageindex,6);
         HttpSession session = request.getSession();
         Integer companyId = (Integer)session.getAttribute("loginid");
         QueryWrapper<Studentinfo> queryWrapper=new QueryWrapper<Studentinfo>();
-        queryWrapper.eq("CompanyID",companyId);
+        queryWrapper.eq("CompanyID",111);//companyId
 
         Page<Studentinfo> page1 = studentinfoService.page(page, queryWrapper);
         MyPage<Studentinfo> pages = new MyPage<Studentinfo>(1L, page1.getCurrent(), page1.getPages(), page1.getRecords());
@@ -42,7 +42,7 @@ public class CompanyStudentController extends AdminBaseController {
 
 //        List<Teacherinfo> teacherList = teacherinfoService.list();
 //        model.addAttribute("teachers", teacherList);
-        return "company/student_info";
+        return "company/student";
     }
 
 //实训公司只能查看不能修改
