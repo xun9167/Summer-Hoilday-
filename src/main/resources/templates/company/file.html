@@ -2,113 +2,113 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="common/f_header::head('提交文件')"></head>
 <body class="hold-transition sidebar-mini layout-fixed">
-    <div class="wrapper">
-        <!-- Navbar -->
-        <div th:replace="common/f_navbar :: navbar('提交文件')"></div>
-        <!-- /.navbar -->
-        <!-- Main Sidebar Container -->
-        <div th:replace="common/f_sidebar :: sidebar_company"></div>
+<div class="wrapper">
+    <!-- Navbar -->
+    <div th:replace="common/f_navbar :: navbar('提交文件')"></div>
+    <!-- /.navbar -->
+    <!-- Main Sidebar Container -->
+    <div th:replace="common/f_sidebar :: sidebar_company"></div>
 
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-
-
-            <!-- Content Header (Page header) -->
-            <div class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <!-- <div class="col-sm-6">
-                          <h1 class="m-0 text-dark">Dashboard</h1>
-                        </div> -->
-
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
 
 
-            <!-- Main content -->
-            <section class="content">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <!-- <div class="col-sm-6">
+                      <h1 class="m-0 text-dark">Dashboard</h1>
+                    </div> -->
 
-                <button class="btn btn-success"  style="margin: -15px 0 15px 10px">
-                    上传
-                </button>
-<!--                <button type="button" class="btn btn-block btn-primary btn-sm">导入</button>-->
-
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <!-- <div class="card-header">
-                                  <h3 class="card-title">Bordered Table</h3>
-                                </div> -->
-                                <!-- /.card-header -->
-                                <div class="card-body">
-                                    <table class="table table-bordered">
-                                        <thead style="text-align: center;">
-                                        <tr>
-<!--                                            <th style="width: 150px">公司名称</th>-->
-                                            <th>文件名称</th>
-                                            <th>文件类型</th>
-                                            <th>操作</th>
-
-                                        </tr>
-                                        </thead>
-                                        <tbody style="text-align: center;">
-                                        <tr th:each="file : ${pages.list}">
-                                            <td th:text="${file.CompanyFileName}"></td>
-                                            <td th:text="${file.CompanyFileType}"></td>
-                                            <td>
-                                                <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs"
-                                                   th:onclick="javascript:showdelete([[${file.CompanyFileID}]])">删除</a>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- /.card-body -->
-                                <div class="card-footer clearfix">
-                                    <div th:insert="common/f_pagination :: page('/company/file')"></div>
-                                </div>
-                            </div>
-                            <!-- /.card -->
-                        </div>
-                    </div>
-
-                    <!-- 编辑 模态框（Modal） -->
-                    <div class="modal fade" id="deletModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
-                         aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h6 class="modal-title" id="deletModalLabel">删除文件</h6>
-                                </div>
-                                <form th:action="@{/admin/deletearticle}" method="post">
-                                    <div class="modal-body">
-                                        <input id="fileid" name="id" type="hidden">
-                                        你确定要删除文件 <label id="deletename"></label> 吗？
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                                        <button type="submit" class="btn btn-primary">确定</button>
-                                    </div>
-                                </form>
-                            </div><!-- /.modal-content -->
-                        </div><!-- /.modal -->
-                    </div>
-                </div>
-            </section>
-
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
         </div>
 
+
+        <!-- Main content -->
+        <section class="content">
+
+            <button class="btn btn-success"  style="margin: -15px 0 15px 10px">
+                上传
+            </button>
+            <!--                <button type="button" class="btn btn-block btn-primary btn-sm">导入</button>-->
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <!-- <div class="card-header">
+                              <h3 class="card-title">Bordered Table</h3>
+                            </div> -->
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead style="text-align: center;">
+                                    <tr>
+                                        <!--                                            <th style="width: 150px">公司名称</th>-->
+                                        <th>文件名称</th>
+                                        <th>文件类型</th>
+                                        <th>操作</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody style="text-align: center;">
+                                   <!-- <tr th:each="file : ${pages.list}">
+                                        <td th:text="${file.companyFileName}"></td>
+                                        <td th:text="${file.companyFileType}"></td>
+                                        <td>
+                                            <a type="button" style="color: white" class="btn btn-block btn-primary btn-xs"
+                                               th:onclick="javascript:showdelete([[${file.companyFileID}]])">删除</a>
+                                        </td>
+                                    </tr>-->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer clearfix">
+                                <div th:insert="common/f_pagination :: page('/company/file')"></div>
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+
+                <!-- 编辑 模态框（Modal） -->
+                <div class="modal fade" id="deletModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h6 class="modal-title" id="deletModalLabel">删除文件</h6>
+                            </div>
+                            <form th:action="@{/admin/deletearticle}" method="post">
+                                <div class="modal-body">
+                                    <input id="fileid" name="id" type="hidden">
+                                    你确定要删除文件 <label id="deletename"></label> 吗？
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                    <button type="submit" class="btn btn-primary">确定</button>
+                                </div>
+                            </form>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal -->
+                </div>
+            </div>
+        </section>
+
     </div>
-    <div th:replace="common/f_bottom :: bottom"></div>
-    <script>
 
-        function showdelete(id) {
-            $('#deletModal').modal('show');
-            $('#fileid').val(id);
-        }
+</div>
+<div th:replace="common/f_bottom :: bottom"></div>
+<script>
 
-    </script>
+    function showdelete(id) {
+        $('#deletModal').modal('show');
+        $('#fileid').val(id);
+    }
+
+</script>
 </body>
 </html>

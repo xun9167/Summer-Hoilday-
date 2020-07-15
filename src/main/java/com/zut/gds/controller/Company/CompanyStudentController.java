@@ -22,7 +22,7 @@ import javax.servlet.http.HttpSession;
  * @since 2020-07-14
  */
 @Controller
-public class CompanyStudentController extends AdminBaseController {
+public class CompanyStudentController extends CompanyBaseController {
 
 
 /*
@@ -34,7 +34,7 @@ public class CompanyStudentController extends AdminBaseController {
         HttpSession session = request.getSession();
         Integer companyId = (Integer)session.getAttribute("loginid");
         QueryWrapper<Studentinfo> queryWrapper=new QueryWrapper<Studentinfo>();
-        queryWrapper.eq("CompanyID",companyId);
+        queryWrapper.eq("CompanyID",111);//companyId
 
         Page<Studentinfo> page1 = studentinfoService.page(page, queryWrapper);
         MyPage<Studentinfo> pages = new MyPage<Studentinfo>(1L, page1.getCurrent(), page1.getPages(), page1.getRecords());

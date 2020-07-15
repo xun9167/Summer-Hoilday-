@@ -38,18 +38,18 @@
                                 <!-- /.card-header -->
                                 <!-- form start -->
                                 <form role="form" th:action="@{/company/savegrade}" method="post">
-                                    <input name="StudentID" type="hidden" th:value="${student.StudentID}">
+                                    <input name="StudentID" type="hidden" th:value="${student.studentID}">
                                     <div class="card-body">
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">学号</label>
                                             <div class="col-sm-10">
-                                                <input disabled="true" name="StudentID" type="text" class="form-control" th:value="${student.StudentID}">
+                                                <input disabled="true" name="StudentID" type="text" class="form-control" th:value="${student.studentID}">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label  class="col-sm-2 col-form-label">姓名</label>
                                             <div class="col-sm-10">
-                                            <input disabled="true" type="text" class="form-control" th:value="${student.StudentName}">
+                                            <input disabled="true" type="text" class="form-control" th:value="${student.studentName}">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -61,19 +61,19 @@
                                         <div class="form-group row">
                                             <label  class="col-sm-2 col-form-label">教师成绩</label>
                                             <div class="col-sm-10">
-                                            <input type="text" name="teacherResult" class="form-control" th:value="${student.teacherResult}">
+                                            <input disabled="true" type="text" class="form-control" th:value="${student.teacherResult}">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label  class="col-sm-2 col-form-label">公司成绩</label>
                                             <div class="col-sm-10">
-                                            <input disabled="true" type="text" class="form-control" th:value="${student.companyResult}">
+                                            <input type="text" name="companyResult" class="form-control" th:value="${student.companyResult}">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label  class="col-sm-2 col-form-label">最终成绩</label>
                                             <div class="col-sm-10">
-                                                <input disabled="true" type="text" class="form-control" th:value="${student.TrainingResult}">
+                                                <input disabled="true" type="text" class="form-control" th:value="${student.trainingResult}">
                                             </div>
                                         </div>
                                         
@@ -82,7 +82,7 @@
 
                                     <div class="card-footer">
                                         <button type="submit" class="btn btn-primary float-right">保存修改</button>
-                                        <a th:href="@{/teacher/grade}" type="button" class="btn btn-primary float-left">取消</a>
+                                        <a th:href="@{/company/grade}" type="button" class="btn btn-primary float-left">取消</a>
                                     </div>
                                 </form>
                             </div>
