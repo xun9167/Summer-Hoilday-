@@ -37,47 +37,37 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form role="form">
-                                <input type="hidden" name="role" th:value="${teacher.role}" disabled="true">
-                                <input type="hidden" name="endTime" th:value="${teacher.endTime}" disabled="true">
+                            <form role="form" th:action="@{/student/student_score}" method="post">
                                 <div class="card-body">
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">工号</label>
+                                        <label  class="col-sm-2 col-form-label" >姓名</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="TeacherID" th:value="${teacher.TeacherID}" disabled="true">
+                                            <input type="text" class="form-control" name="StudentName" th:value="${student.studentName}" disabled="true">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label  class="col-sm-2 col-form-label">姓名</label>
+                                        <label  class="col-sm-2 col-form-label">公司打分</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="TeacherName" th:value="${teacher.TeacherName}" disabled="true">
+                                            <input type="text" class="form-control" name="StudentSex" th:value="${student.companyResult}" disabled="true">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label  class="col-sm-2 col-form-label">性别</label>
+                                        <label  class="col-sm-2 col-form-label" >教师打分</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="TeacherSex"  th:value="${teacher.TeacherSex}" disabled="true">
+                                            <input type="email" class="form-control" name="StudentEmail" th:value="${student.teacherResult}" disabled="true">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label  class="col-sm-2 col-form-label">邮箱</label>
+                                        <label  class="col-sm-2 col-form-label">最终分数</label>
                                         <div class="col-sm-10">
-                                            <input type="email" class="form-control" name="TeacherEmail" th:value="${teacher.TeacherEmail}" disabled="true">
+                                            <input type="text" class="form-control" name="StudentPhone" th:value="${student.trainingResult}" disabled="true">
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label  class="col-sm-2 col-form-label">联系方式</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="TeacherPhone" th:value="${teacher.TeacherPhone}" disabled="true">
-                                        </div>
+
                                     </div>
 
                                 </div>
                                 <!-- /.card-body -->
-
-                                <div class="card-footer">
-
-                                </div>
                             </form>
                         </div>
                     </div>
