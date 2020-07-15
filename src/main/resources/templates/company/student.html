@@ -1,80 +1,76 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="common/f_header::head('学生信息管理')"></head>
-<body class="hold-transition sidebar-mini layout-fixed">
-    <div class="wrapper">
-        <!-- Navbar -->
-        <div th:replace="common/f_navbar :: navbar('学生信息管理')"></div>
-        <!-- /.navbar -->
-        <!-- Main Sidebar Container -->
-        <div th:replace="common/f_sidebar :: sidebar_company"></div>
+<div class="wrapper">
+    <!-- Navbar -->
+    <div th:replace="common/f_navbar :: navbar('学生信息管理')"></div>
+    <!-- /.navbar -->
+    <!-- Main Sidebar Container -->
+    <div th:replace="common/f_sidebar :: sidebar_company"></div>
 
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-
-
-            <!-- Content Header (Page header) -->
-            <div class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <!-- <div class="col-sm-6">
-                          <h1 class="m-0 text-dark">Dashboard</h1>
-                        </div> -->
-
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
 
 
-            <!-- Main content -->
-            <section class="content">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <!-- <div class="col-sm-6">
+                      <h1 class="m-0 text-dark">Dashboard</h1>
+                    </div> -->
+
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+
+
+        <!-- Main content -->
+        <section class="content">
 
 
 
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <!-- <div class="card-header">
-                                  <h3 class="card-title">Bordered Table</h3>
-                                </div> -->
-                                <!-- /.card-header -->
-                                <div class="card-body">
-                                    <table class="table table-bordered">
-                                        <thead style="text-align: center;">
-                                        <tr>
-                                            <th style="width: 80px">学号</th>
-                                            <th>姓名</th>
-                                            <th>性别</th>
-                                            <th>班级</th>
-                                            <th>邮箱</th>
-                                            <th>联系方式</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody style="text-align: center;">
-                                        <tr th:each="student : ${pages.list}">
-                                            <td th:text="${student.StudentID}">201819164234</td>
-                                            <td th:text="${student.StudentName}">王五</td>
-                                            <td th:text="${student.StudentSex}">男</td>
-                                            <td>卓越181</td>
-                                            <td th:text="${student.StudentEmail}">校内实训</td>
-                                            <td th:text="${student.StudentPhone}">13243320296</td>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <!-- <div class="card-header">
+                              <h3 class="card-title">Bordered Table</h3>
+                            </div> -->
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead style="text-align: center;">
+                                    <tr>
+                                        <th style="width: 80px">学号</th>
+                                        <th>姓名</th>
+                                        <th>性别</th>
+                                        <th>班级</th>
+                                        <th>邮箱</th>
+                                        <th>联系方式</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody style="text-align: center;">
+                                    <tr th:each="student : ${pages.list}">
+                                        <td th:text="${student.studentID}">201819164234</td>
+                                        <td th:text="${student.studentName}">王五</td>
+                                        <td th:text="${student.studentSex}">男</td>
+                                        <td>卓越181</td>
+                                        <td th:text="${student.studentEmail}">校内实训</td>
+                                        <td th:text="${student.studentPhone}">13243320296</td>
 
-                                        </tr>
+                                    </tr>
 
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- /.card-body -->
-                                <div class="card-footer clearfix">
-                                    <div th:insert="common/f_pagination :: page('/company/studentinfo')"></div>
-
-                                </div>
+                                    </tbody>
+                                </table>
                             </div>
-                            <!-- /.card -->
+
                         </div>
+                        <!-- /.card -->
                     </div>
                 </div>
-            </section>
-</body>
+            </div>
+        </section>
+    </div>
+</div>
 </html>
