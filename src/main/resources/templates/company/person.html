@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/f_header::head('公司信息管理')"></head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+    <!-- Navbar -->
+    <div th:replace="common/f_navbar :: navbar('公司信息管理')"></div>
+    <!-- /.navbar -->
+    <!-- Main Sidebar Container -->
+    <div th:replace="common/f_sidebar :: sidebar_company"></div>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <!-- <div class="col-sm-6">
+                      <h1 class="m-0 text-dark">Dashboard</h1>
+                    </div> -->
+
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-8 col-12" style="margin: 0 auto">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">公司信息管理</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            <form role="form" th:action="@{/company/person}" method="post">
+                                <input type="hidden" name="CompanyID" th:value="${company.companyID}">
+                                <input type="hidden" name="CompanyName" th:value="${company.companyName}">
+                                <input type="hidden" name="CompanyType1" th:value="${company.getCompanyType1()}">
+                                <input type="hidden" name="CompanyCity" th:value="${company.companyCity}">
+                                <!--<input type="hidden" name="PracticeDirection" th:value="${student.practiceDirection}">-->
+                                <input type="hidden" name="Contacts" th:value="${company.contacts}">
+                                <input type="hidden" name="CompanyPhone" th:value="${company.companyPhone}">
+
+                                <div class="card-body">
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">公司名称</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" th:value="${company.companyName}" disabled="true">
+                                            <input type="hidden" class="form-control" name="CompanyID"  th:value="${company.companyID}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label  class="col-sm-2 col-form-label" >公司类型</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="CompanyType1" th:value="${company.companyType1}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label  class="col-sm-2 col-form-label">所在城市</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="CompanyCity" th:value="${company.companyCity}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label  class="col-sm-2 col-form-label" >联系人</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" name="Contacts" th:value="${company.contacts}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label  class="col-sm-2 col-form-label">联系电话</label>
+                                        <div class="col-sm-10">
+
+                                            <input type="text" class="form-control" name="CompanyPhone" th:value="${company.companyPhone}">
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <!-- /.card-body -->
+
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary float-right">保存修改</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+    </div>
+
+</div>
+<div th:replace="common/f_bottom :: bottom"></div>
+</body>
+</html>
