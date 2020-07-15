@@ -57,7 +57,8 @@
                                     <div class="form-group row">
                                         <label  class="col-sm-2 col-form-label" >公司类型</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="CompanyType1" th:value="${company.companyType1}">
+
+                                            <input type="text" class="form-control" name="CompanyType1" th:value="${company.companyType1} == 1 ? '校内实训公司' : '合作公司'">
                                         </div>
                                     </div>
                                     <div class="form-group row">
