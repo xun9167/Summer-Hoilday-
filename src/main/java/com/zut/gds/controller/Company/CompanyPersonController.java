@@ -1,6 +1,9 @@
 package com.zut.gds.controller.Company;
 
 import com.zut.gds.entity.Companyinfo;
+import com.zut.gds.entity.Studentinfo;
+import com.zut.gds.service.StudentinfoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,21 +25,25 @@ public class CompanyPersonController extends CompanyBaseController {
 /*
 查看个人信息。
  */
+
     @GetMapping("/person")
     public String personPage(Model model, HttpServletRequest request){
         HttpSession session = request.getSession();
         Integer id = (Integer)session.getAttribute("loginid");
-        Companyinfo companyinfo = companyinfoService.getById(id);
+        Companyinfo companyinfo = companyinfoService.getById(111);//id
         model.addAttribute("company", companyinfo);
-        return "company/company_info";
+        return "company/person";
+
     }
     /*
     个人信息修改
      */
-    @PostMapping("/person")
+    @PostMapping ("/person")
     public String personHandle(Companyinfo companyinfo){
-        companyinfoService.saveOrUpdate(companyinfo);
+        System.out.println(companyinfo);
+        companyinfoService.updateById(companyinfo);
         return "redirect:/company/person";
     }
+
 
 }
