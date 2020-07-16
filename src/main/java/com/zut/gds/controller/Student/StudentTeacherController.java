@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * </p>
  *
  * @author huaxiaoyu
- * @since 2020-07-11
+ * @since 2020-07-11.
  */
 @Controller
 public class StudentTeacherController extends StudentBaseController {

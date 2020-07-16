@@ -49,7 +49,7 @@ public class StudentGradeController extends StudentBaseController {
         return "student/inputgrade";
     }
     /*
-           保存学生的成绩信息
+           保存学生的成绩信息.
      */
     @PostMapping("/savegrade")
     public String savegrade(@RequestParam("StudentID")Integer StudentID,

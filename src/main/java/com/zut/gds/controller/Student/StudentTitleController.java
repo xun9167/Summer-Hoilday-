@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
  * </p>
  *
  * @author huaxiaoyu
- * @since 2020-07-13
+ * @since 2020-07-13.
  */
 @Controller
 public class StudentTitleController extends StudentBaseController {

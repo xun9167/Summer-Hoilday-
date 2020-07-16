@@ -35,7 +35,7 @@ public class StudentinfoController {
     @Autowired
     private StudentinfoService studentinfoService;
     private CompanyinfoService companyinfoService;
-    /*给我id给你学生对像*/
+    /*给我id给你学生对像.*/
     @GetMapping("/studentinfo")
     public String studentinfo(Model model, HttpServletRequest request){
 //        int id=(int) request.getSession().getAttribute("sutdentid");
