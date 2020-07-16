@@ -31,6 +31,7 @@ public class TeacherPwdController extends TeacherBaseController{
                             ){
 
         Integer loginid = (Integer)session.getAttribute("loginid");
+        System.out.println("loginid"+loginid);
         Teacherinfo tbyId = teacherinfoService.getById(loginid);
         tbyId.setTeacherPhone(password);
         teacherinfoService.saveOrUpdate(tbyId);
