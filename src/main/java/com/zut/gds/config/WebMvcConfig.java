@@ -25,14 +25,14 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
         this.testIntercepter = testIntercepter;
     }
 
-    @Override
-    protected void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(testIntercepter)
-                .addPathPatterns("/admin/**")
-                .addPathPatterns("/teacher/**")
-                .addPathPatterns("/student/**")
-                .addPathPatterns("/company/**");
-    }
+//    @Override
+//    protected void addInterceptors(InterceptorRegistry registry) {
+//        registry.addInterceptor(testIntercepter)
+//                .addPathPatterns("/admin/**")
+//                .addPathPatterns("/teacher/**")
+//                .addPathPatterns("/student/**")
+//                .addPathPatterns("/company/**");
+//    }
 
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {

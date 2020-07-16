@@ -64,7 +64,7 @@ public class LoginController  {
 
         if (user2 != null&& user2.getPassword().equals(pwd)) {
 
-            session.setAttribute("loginid", user2.getId());
+            session.setAttribute("loginid", Integer.parseInt(user2.getId()));
 
             if (user2.getType() == 0) {
 
