@@ -2,7 +2,7 @@ package com.zut.gds.controller.Student;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-
+import com.zut.gds.controller.Company.CompanyBaseController;
 import com.zut.gds.entity.Studentinfo;
 import com.zut.gds.vo.MyPage;
 import org.springframework.stereotype.Controller;
