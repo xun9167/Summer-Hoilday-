@@ -27,7 +27,7 @@ import java.util.List;
 public class LoginController extends LoginBaseController {
 
 
-
+//传入用户名和密码登陆
     @GetMapping("/login")
     public String loginPage(String Username,String pwd, Model model, HttpServletRequest request){
         HttpSession session=request.getSession();
@@ -40,12 +40,12 @@ public class LoginController extends LoginBaseController {
 //                queryWrapper.lambda().and(obj -> obj.eq(Login::getUsername,Username).eq(Login::getPassword,pwd)));
 //
 
-        List users = loginService.list(queryWrapper.eq("username","公司"));
+        List users = loginService.list(queryWrapper.eq("username",Username));
         Login user2 = (Login) users.get(0);
 
 
 
-        if (user2 != null) {
+        if (user2 != null&& user2.getPassword().equals(pwd)) {
 
             session.setAttribute("USER_SESSION", user2);
             if (user2.getType() == 0) {
