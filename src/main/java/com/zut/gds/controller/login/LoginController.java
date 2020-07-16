@@ -3,10 +3,14 @@ package com.zut.gds.controller.login;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.zut.gds.entity.Login;
+import com.zut.gds.service.LoginService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,13 +27,26 @@ import java.util.List;
  * @since 2020-07-08
  */
 @Controller
-@ResponseBody
-public class LoginController extends LoginBaseController {
+
+public class LoginController  {
+
+    protected LoginService loginService;
+
+    @Autowired
+    public void LoginBaseController(LoginService loginService) {
+        this.loginService = loginService;
+    }
+
+    @GetMapping({"/login","/"})
+
+    public String tologin(){
+        return "login/login";
+    }
 
 
 //传入用户名和密码登陆
-    @GetMapping("/login")
-    public String loginPage(String Username,String pwd, Model model, HttpServletRequest request){
+    @PostMapping("/login")
+    public String loginPage(@RequestParam("username") String Username, @RequestParam("password") String pwd, Model model, HttpServletRequest request){
         HttpSession session=request.getSession();
 
 
@@ -47,15 +64,20 @@ public class LoginController extends LoginBaseController {
 
         if (user2 != null&& user2.getPassword().equals(pwd)) {
 
-            session.setAttribute("USER_SESSION", user2);
+            session.setAttribute("loginid", user2.getId());
+
             if (user2.getType() == 0) {
-                return "teacher/person";
+
+                return "redirect:/teacher/person";
             }else if(user2.getType() == 1){
-                return "student/company";
+
+                return "redirect:/student/company";
             }else if(user2.getType() == 2) {
-                return "admin/admin_info";
+
+                return "redirect:/admin/admin_info";
             }else {
-                return "company/person";
+
+                return "redirect:/company/person";
             }
         }else {
 
