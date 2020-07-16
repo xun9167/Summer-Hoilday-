@@ -1,5 +1,6 @@
-package com.zut.gds.controller.Student;
+package com.zut.gds.controller.Company;
 
+import com.zut.gds.controller.Student.StudentBaseController;
 import com.zut.gds.entity.Studentinfo;
 import com.zut.gds.entity.Teacherinfo;
 import com.zut.gds.service.StudentinfoService;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpSession;
 //
 @Controller
-public class StudentPwdController extends StudentBaseController{
+public class StudentPwdController extends StudentBaseController {
     @Autowired
     private TeacherinfoService teacherinfoService;
     @Autowired

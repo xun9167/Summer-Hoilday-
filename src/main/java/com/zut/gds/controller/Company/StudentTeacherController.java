@@ -1,7 +1,8 @@
-package com.zut.gds.controller.Student;
+package com.zut.gds.controller.Company;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.zut.gds.controller.Student.StudentBaseController;
 import com.zut.gds.controller.admin.AdminBaseController;
 import com.zut.gds.entity.Teacherinfo;
 import com.zut.gds.vo.MyPage;

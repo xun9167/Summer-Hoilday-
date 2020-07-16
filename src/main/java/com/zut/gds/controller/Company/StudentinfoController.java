@@ -1,4 +1,4 @@
-package com.zut.gds.controller.Student;
+package com.zut.gds.controller.Company;
 
 
 import com.zut.gds.entity.Companyinfo;
