@@ -12,6 +12,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2020-07-08
  */
 public interface LoginService extends IService<Login> {
+
     Login login(Login login);
 
     void modifyPasswordByUsername(String username, String newpassword);
