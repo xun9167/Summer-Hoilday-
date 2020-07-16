@@ -49,13 +49,13 @@ public class LoginController extends LoginBaseController {
 
             session.setAttribute("USER_SESSION", user2);
             if (user2.getType() == 0) {
-                return "teachershouye";
+                return "teacher/person";
             }else if(user2.getType() == 1){
-                return "studentshouye";
+                return "student/company";
             }else if(user2.getType() == 2) {
-                return "mangershouye";
+                return "admin/admin_info";
             }else {
-                return "companyshouye";
+                return "company/person";
             }
         }else {
 
