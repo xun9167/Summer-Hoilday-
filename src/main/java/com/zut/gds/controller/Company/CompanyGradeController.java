@@ -2,8 +2,6 @@ package com.zut.gds.controller.Company;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.zut.gds.controller.Company.CompanyBaseController;
-import com.zut.gds.controller.Student.StudentBaseController;
 import com.zut.gds.entity.Studentinfo;
 import com.zut.gds.vo.MyPage;
 import org.springframework.stereotype.Controller;
@@ -23,21 +21,23 @@ import javax.servlet.http.HttpSession;
  * @since 2020-07-14
  */
 @Controller
-public class StudentGradeController extends StudentBaseController {
+public class CompanyGradeController extends CompanyBaseController {
     /*
     查看该公司所管辖的所有学生的成绩信息。
      */
-    @GetMapping("/student_score")
+    @GetMapping("/grade")
     public String gradePage(Model model,
                             @RequestParam(value = "page",defaultValue = "1")Integer pageindex,
                             HttpSession session){
-
+        Integer companyId = (Integer)session.getAttribute("loginid");
+        QueryWrapper<Studentinfo> queryWrapper=new QueryWrapper<Studentinfo>();
+        queryWrapper.eq("CompanyID",companyId);
 
         Page<Studentinfo> page = new Page<>(pageindex,6);
-        Page<Studentinfo> page1 = studentinfoService.page(page, null);
+        Page<Studentinfo> page1 = studentinfoService.page(page, queryWrapper);
         MyPage<Studentinfo> pages = new MyPage<Studentinfo>(1L, page1.getCurrent(), page1.getPages(), page1.getRecords());
         model.addAttribute("pages", pages);
-        return "student/student_score";
+        return "company/grade";
     }
     /*
        查看学生已有的成绩信息
@@ -47,10 +47,10 @@ public class StudentGradeController extends StudentBaseController {
                                  Model model){
         Studentinfo studentinfo = studentinfoService.getById(sid);
         model.addAttribute("student", studentinfo);
-        return "student/inputgrade";
+        return "company/inputgrade";
     }
     /*
-           保存学生的成绩信息.
+           保存学生的成绩信息
      */
     @PostMapping("/savegrade")
     public String savegrade(@RequestParam("StudentID")Integer StudentID,
@@ -59,7 +59,7 @@ public class StudentGradeController extends StudentBaseController {
         byId.setCompanyResult(companyResult);
         byId.setTrainingResult((companyResult+byId.getTeacherResult())/2);
         studentinfoService.saveOrUpdate(byId);
-        return "redirect:/student/student_score";
+        return "redirect:/company/grade";
     }
 }
 
