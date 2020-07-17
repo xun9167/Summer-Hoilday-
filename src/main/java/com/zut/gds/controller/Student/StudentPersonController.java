@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * <p>
@@ -24,8 +26,10 @@ public class StudentPersonController extends StudentBaseController{
     @Autowired
     private StudentinfoService studentinfoService;
     @GetMapping("/person")
-    public String personPage(Model model, HttpServletRequest request){
-        Studentinfo studentinfo=studentinfoService.getById(116);
+    public String personPage(Model model, HttpSession session){
+        Integer integer=(Integer) session.getAttribute("loginid");
+        System.out.println(integer);
+        Studentinfo studentinfo=studentinfoService.getById(integer);
         model.addAttribute("student",studentinfo);
         return "student/person";
     }

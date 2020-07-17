@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>
@@ -28,13 +30,11 @@ public class StudentGradeController extends StudentBaseController {
      */
     @GetMapping("/student_score")
     public String gradePage(Model model,
-                            @RequestParam(value = "page",defaultValue = "1")Integer pageindex,
                             HttpSession session){
-
-
-        Page<Studentinfo> page = new Page<>(pageindex,6);
-        Page<Studentinfo> page1 = studentinfoService.page(page, null);
-        MyPage<Studentinfo> pages = new MyPage<Studentinfo>(1L, page1.getCurrent(), page1.getPages(), page1.getRecords());
+        Integer integer=(Integer) session.getAttribute("loginid");
+        ArrayList<Studentinfo> pages = new ArrayList<>();
+        Studentinfo student=studentinfoService.getById(integer);
+        pages.add(student);
         model.addAttribute("pages", pages);
         return "student/student_score";
     }

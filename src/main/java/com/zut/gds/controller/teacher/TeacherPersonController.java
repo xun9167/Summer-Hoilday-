@@ -23,7 +23,7 @@ public class TeacherPersonController extends TeacherBaseController{
     @GetMapping("/person")
     public String personPage(Model model, HttpServletRequest request){
         HttpSession session = request.getSession();
-        Integer id = (Integer)session.getAttribute("adminLoginId");
+        Integer id = (Integer)session.getAttribute("loginid");
         Teacherinfo teacherinfo = teacherinfoService.getById(id);
         model.addAttribute("teacher", teacherinfo);
         return "teacher/person";

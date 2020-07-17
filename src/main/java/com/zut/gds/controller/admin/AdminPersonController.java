@@ -23,7 +23,8 @@ public class AdminPersonController extends AdminBaseController{
     @GetMapping("/person")
     public String personPage(Model model, HttpServletRequest request){
         HttpSession session = request.getSession();
-        Integer id = (Integer)session.getAttribute("adminLoginId");
+        Integer id = (Integer)session.getAttribute("loginid");
+        System.out.println(id);
         Teacherinfo teacherinfo = teacherinfoService.getById(id);
         model.addAttribute("teacher", teacherinfo);
         return "admin/admin_info";

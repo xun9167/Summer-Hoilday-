@@ -13,7 +13,7 @@ public class TestIntercepter implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session = request.getSession();
         session.setAttribute("adminLoginId",120);
-        session.setAttribute("loginid",116);
+        //session.setAttribute("loginid",116);
         return true;
     }
 }

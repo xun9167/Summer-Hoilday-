@@ -56,12 +56,16 @@ public class LoginController  {
 //        List users = loginService.list(
 //                queryWrapper.lambda().and(obj -> obj.eq(Login::getUsername,Username).eq(Login::getPassword,pwd)));
 //
+        List users=null;
+        Login user2=null;
+        try {
+           users = loginService.list(queryWrapper.eq("username", Username));
+           user2 = (Login) users.get(0);
 
-        List users = loginService.list(queryWrapper.eq("username",Username));
-        Login user2 = (Login) users.get(0);
-
-
-
+       }catch (Exception e){
+           model.addAttribute("msg","账号或密码错误，请重新输入！");
+           return "login/login";
+       }
         if (user2 != null&& user2.getPassword().equals(pwd)) {
 
             session.setAttribute("loginid", Integer.parseInt(user2.getId()));
@@ -74,7 +78,7 @@ public class LoginController  {
                 return "redirect:/student/company";
             }else if(user2.getType() == 2) {
 
-                return "redirect:/admin/admin_info";
+                return "redirect:/admin/person";
             }else {
 
                 return "redirect:/company/person";
@@ -86,6 +90,7 @@ public class LoginController  {
 
 
         }
+
     }
 }
 
